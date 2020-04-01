@@ -9,8 +9,7 @@ class Graph;
 
 // stl containers
 #include <vector>
-#include <queue>
-#include <deque>
+#include <map>
 
 //other types
 #include "Edge.h"
@@ -22,13 +21,11 @@ public:
 	std::vector<Vertex> vertices;
 	std::vector<Edge> edges;
 
-	std::deque<Vertex*> active_vertices;
-	std::queue<int> highest_label;
-	std::queue<int> highest_excess;
+	std::map<int, int> dijkstra(int start, bool use_arcs_backwards=false) const;
 
 	bool edge_admissible(int start, int end) const;
 
-	//Graph residual();
+	Graph residual();
 	friend std::istream &operator>>( std::istream &input, Graph &graph );
 	friend std::ostream &operator<<( std::ostream &ostream, const Graph &graph);
 };

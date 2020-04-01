@@ -1,6 +1,8 @@
 #include "Edge.h"
 
-Edge::Edge(Graph &g, std::istream &input) 
+using namespace std;
+
+Edge::Edge(Graph &g, istream &input) 
 : graph(g), start(0), end(0), capacity(0), _flow(0) {
 	input >> *this;
 }
@@ -55,11 +57,11 @@ bool Edge::is_residual_backward_admissible() const {
 	return this->end_vertex().distance == this->start_vertex().distance + 1;
 }
 
-std::istream &operator>>( std::istream &input, Edge &edge ) { 
+istream &operator>>( istream &input, Edge &edge ) { 
 	input >> edge.start >> edge.end >> edge.capacity;
 	return input;            
 }
-std::ostream &operator<<( std::ostream &ostream, const Edge &edge ) { 
+ostream &operator<<( ostream &ostream, const Edge &edge ) { 
 	ostream << edge.start << ", " << edge.end << ", " << edge.capacity << ", " << edge.flow();
 	return ostream;            
 }

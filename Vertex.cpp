@@ -1,5 +1,7 @@
 #include "Vertex.h"
 
+using namespace std;
+
 bool Vertex::active() const {
     return this->excess() > 0;
 }
@@ -22,7 +24,7 @@ int Vertex::excess_recalculate() {
     return this->excess();
 }
 
-std::ostream &operator<<( std::ostream &ostream, const Vertex &vertex ) { 
+ostream &operator<<( ostream &ostream, const Vertex &vertex ) { 
     ostream << "index: " << vertex.index << "; excess: " << vertex.excess() << "; distance: " << vertex.distance << "; outbound: " << vertex.outbound_edges.size() << "; inbound: " << vertex.inbound_edges.size() << ";";
     return ostream;            
 }

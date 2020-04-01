@@ -19,6 +19,7 @@ public:
 
 	int start, end;
 	int capacity;
+	int weight;
 
 	Edge(Graph &g, std::istream &istream);
 	Edge(Graph &g, int start=0, int end=0, int capacity=0, int flow=0);

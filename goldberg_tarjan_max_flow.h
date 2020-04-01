@@ -1,18 +1,10 @@
 #ifndef GOLDBERG_TARJAN_MAX_FLOW_H_INCLUDED
 #define GOLDBERG_TARJAN_MAX_FLOW_H_INCLUDED
 
-// streams
-#include <iostream>
-
-// containers & algorithms
-#include <algorithm>
-#include <map>
-
 // timing
 #include <chrono>
 
 // types
-#include <string>
 #include "Graph.h"
 
 struct ExecutionData {
