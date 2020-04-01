@@ -18,13 +18,23 @@ class Vertex;
 #include "Edge.h"
 
 class Vertex {
+private:
+	int _excess;
+
 public:
 	int index;
-	int distance;
+	unsigned int distance;
+
 	std::vector<Edge*> outbound_edges;
 	std::vector<Edge*> inbound_edges;
 
-	bool is_admissible() const;
+	bool active() const;
+	int excess() const;
+	int excess(int difference);
+	int excess_recalculate();
+
+	// user has to make sure not to expose the input-stream
+	friend std::ostream &operator<<( std::ostream &ostream, const Vertex &vertex);
 };
 
 #endif // VERTEX_H_INCLUDED

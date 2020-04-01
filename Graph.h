@@ -10,6 +10,7 @@ class Graph;
 // stl containers
 #include <vector>
 #include <queue>
+#include <deque>
 
 //other types
 #include "Edge.h"
@@ -21,15 +22,15 @@ public:
 	std::vector<Vertex> vertices;
 	std::vector<Edge> edges;
 
-	std::queue<Vertex*> active_vertices;
+	std::deque<Vertex*> active_vertices;
 	std::queue<int> highest_label;
 	std::queue<int> highest_excess;
 
 	bool edge_admissible(int start, int end) const;
 
-	Graph residual();
-	int excess(int n) const;
-	friend std::istream &operator>>( std::istream &input, Graph &D );
+	//Graph residual();
+	friend std::istream &operator>>( std::istream &input, Graph &graph );
+	friend std::ostream &operator<<( std::ostream &ostream, const Graph &graph);
 };
 
 #endif // GRAPH_H_INCLUDED

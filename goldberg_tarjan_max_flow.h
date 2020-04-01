@@ -8,16 +8,20 @@
 #include <algorithm>
 #include <map>
 
+// timing
+#include <chrono>
+
 // types
 #include <string>
 #include "Graph.h"
 
-void run();
+struct ExecutionData {
+	std::chrono::duration<double> duration;
+	unsigned int relabels;
+	unsigned int saturated_pushes;
+	unsigned int unsaturated_pushes;
+};
 
-void push(Graph& g, Vertex& v); 
-
-void relabel(Graph& g, Vertex& v);
-
-void push_or_relabel(Graph& g, Vertex& v);
+ExecutionData run(Graph &graph);
 
 #endif // GOLDBERG_TARJAN_MAX_FLOW_H_INCLUDED
